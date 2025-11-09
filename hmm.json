@@ -69,7 +69,7 @@
     {
       "name": "linc_luajit",
       "type": "git",
-      "ref": "main",
+      "ref": "master",
       "url": "https://github.com/Psych-Slice/linc_luajit-mobile"
     },
     {
