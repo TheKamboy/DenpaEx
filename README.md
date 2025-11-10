@@ -4,7 +4,7 @@
 
 This is a custom version of DenpaEX, as there are some things missing I would like to add.
 
-[You can view the original README here.](OLD_README.md)
+You can view the original README [here](README.md), and the original repository [here](https://github.com/acc0untz0138/DenpaEx).
 
 
 ## Added Features

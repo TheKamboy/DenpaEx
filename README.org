@@ -6,7 +6,7 @@
 * DenpaEX [FORKED]
 This is a custom version of DenpaEX, as there are some things missing I would like to add.
 
-[[file:OLD_README.md][You can view the original README here.]]
+You can view the original README [[file:README.md][here]], and the original repository [[https://github.com/acc0untz0138/DenpaEx][here]].
 
 ** Added Features
 
