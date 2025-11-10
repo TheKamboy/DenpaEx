@@ -10,13 +10,12 @@ This is a custom version of DenpaEX, as there are some things missing I would li
 ## Added Features
 
 -   Working(-ish) Action Builds (Linux is still broken, but we have Windows and Mac OS Builds)
+-   My Custom HUD
 -   That's it for now lol
 
 
 ## Soon to be Added Features
 
--   H-Slice NPS
--   My Custom HUD
 -   Maybe some other tweaks idk
 
 
@@ -38,9 +37,4 @@ This is a custom version of DenpaEX, as there are some things missing I would li
 ### Denpa Engine Team
 
 -   I'm too lazy to write this, check the old readme.
-
-
-### Other Credits
-
--   **HRK.EXEX:** For the NPS code.
 
