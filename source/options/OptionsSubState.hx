@@ -997,7 +997,7 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 		addOption(option);
 
 		var option:Option = new Option('Score Display:', "What engine's score display do you want?", 'scoreDisplay', 'string', 'DenpaEx',
-			['DenpaEx', 'Vanilla', 'Psych', 'Kade', 'Sarvente', 'FPS+', 'FNF+', 'FNM', 'None']);
+			['DenpaEx', 'Vanilla', 'Psych', 'Kade', 'Sarvente', 'FPS+', 'FNF+', 'FNM', 'Kamie', 'None']);
 		addOption(option);
 
 		var option:Option = new Option('Time Bar Format:', "What format should the time bar be in?", 'timeBarType', 'string', 'Elapsed / Left', [

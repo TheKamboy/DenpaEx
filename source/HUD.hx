@@ -240,7 +240,7 @@ class HUD extends FlxSpriteGroup {
 		scoreTxtBg.height = scoreTxtBg.height * 2;
 		scoreTxtBg.scrollFactor.set();
 		scoreTxtBg.alpha = 0.001;
-		if (ClientPrefs.settings.get("scoreDisplay") == 'Sarvente') {
+		if (ClientPrefs.settings.get("scoreDisplay") == 'Sarvente' || ClientPrefs.settings.get("scoreDisplay") == 'Kamie') {
 			scoreTxtBg.alpha = 0.5;
 		}
 		scoreTxtBg.color = FlxColor.BLACK;
@@ -268,6 +268,7 @@ class HUD extends FlxSpriteGroup {
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
+		scoreTxt.antialiasing = true;
 		if (ClientPrefs.settings.get("scoreDisplay") == 'Sarvente') {
 			scoreTxt.x = 0;
 			scoreTxt.borderStyle = SHADOW;
@@ -275,6 +276,9 @@ class HUD extends FlxSpriteGroup {
 			scoreTxt.x = 160;
 		} else if (ClientPrefs.settings.get("scoreDisplay") == 'DenpaEx') {
 			scoreTxt.x = -15;
+		} else if (ClientPrefs.settings.get("scoreDisplay") == 'Kamie') {
+			scoreTxt.setFormat(Paths.font("hud.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.NONE, FlxColor.BLACK);
+			scoreTxt.y = 0;
 		}
 		if (scoreTxt != null)
 			scoreTxt.visible = !ClientPrefs.settings.get("hideHud");

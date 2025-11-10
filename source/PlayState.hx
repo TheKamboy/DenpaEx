@@ -245,6 +245,7 @@ class PlayState extends MusicBeatState {
 
 	public var maxHealth:Float = 2;
 	public var bfNotes:Int = 0;
+	public var opNotes:Int = 0;
 	public var combo:Int = 0;
 	public var highestCombo:Int = 0;
 
@@ -520,6 +521,10 @@ class PlayState extends MusicBeatState {
 	var notesPerSecond:Int = 0;
 	var npsArray:Array<Date> = [];
 	var maxNps:Int = 0;
+
+	var opNps:Int = 0;
+	var opNpsArray:Array<Date> = [];
+	var opMaxNps:Int = 0;
 
 	// tinter
 	var tintMap:Map<String, FlxSprite> = new Map<String, FlxSprite>();
@@ -1520,6 +1525,11 @@ class PlayState extends MusicBeatState {
 
 		hud = new HUD();
 		hud.cameras = [camHUD];
+
+		if (ClientPrefs.settings.get("scoreDisplay") == "Kamie") {
+			hud.scoreTxt.cameras = [camOther];
+			hud.scoreTxtBg.cameras = [camOther];
+		}
 
 		sustains = new NoteGroup();
 		add(sustains);
@@ -3731,6 +3741,51 @@ override public function update(elapsed:Float) {
 			maxNps = notesPerSecond;
 	}
 
+	if (ClientPrefs.settings.get("scoreDisplay") == 'Kamie') {
+		hud.botplayTxt.visible = false;
+
+        var skibiidi = 0;
+        notes.forEachAlive(function(note) { skibiidi += 1; });
+        sustains.forEachAlive(function(note) { skibiidi += 1; });
+
+		final coolHudText = '$opNotes + $combo = ${opNotes+combo} | $opNps/$opMaxNps - $notesPerSecond/$maxNps | R: ${skibiidi}';
+		hud.scoreTxt.text = coolHudText;
+
+		hud.scoreTxtBg.makeGraphic(Math.round((coolHudText.length * 8) / 0.95), Math.round(hud.scoreTxt.height), FlxColor.BLACK);
+
+		hud.scoreTxtBg.x = (FlxG.width / 2) - (hud.scoreTxtBg.width / 2);
+		hud.scoreTxtBg.y = hud.scoreTxt.y;
+
+		// hud.scoreTxtBg.width = (coolHudText.length * 8) / 0.95;
+		// hud.scoreTxtBg.height = hud.scoreTxt.height;
+
+		var balls = npsArray.length - 1;
+		while (balls >= 0) {
+			var cock:Date = npsArray[balls];
+			if (cock != null && cock.getTime() + 1000 < Date.now().getTime())
+				npsArray.remove(cock);
+			else
+				balls = 0;
+			balls--;
+		}
+		notesPerSecond = npsArray.length;
+		if (notesPerSecond > maxNps)
+			maxNps = notesPerSecond;
+
+		var balls = opNpsArray.length - 1;
+		while (balls >= 0) {
+			var cock:Date = opNpsArray[balls];
+			if (cock != null && cock.getTime() + 1000 < Date.now().getTime())
+				opNpsArray.remove(cock);
+			else
+				balls = 0;
+			balls--;
+		}
+	    opNps = opNpsArray.length;
+		if (opNps > opMaxNps)
+			opMaxNps = opNps;
+	}
+
 	if (ClientPrefs.settings.get("scoreDisplay") == 'DenpaEx') {
 		if (ratingFC != "") {
 			hud.scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false)} (${FlxStringUtil.formatMoney(maxScore, false)}) / Health: ${FlxMath.roundDecimal(intendedHealth * 50, 0)}% / NPS (Max): $notesPerSecond ($maxNps) / Accuracy: ${Highscore.floorDecimal(ratingPercent * 100, 2)}%';
@@ -5925,6 +5980,13 @@ public function opponentNoteHit(note:Note, p4:Bool = false) {
 	if (SONG.header.song != 'Tutorial')
 		camZooming = true;
 
+	if (!note.isSustainNote) opNotes += 1;
+
+	if (ClientPrefs.settings.get("scoreDisplay") == 'Kamie') {
+		if (!note.isSustainNote)
+			opNpsArray.unshift(Date.now());
+	}
+
 	if (note.noteType == 'Hey!') {
 		final char:Character = !note.gfNote ? (!p4 ? dad : player4) : gf;
 		if (char.animOffsets.hasKey('hey')) {
@@ -6076,6 +6138,11 @@ public function goodNoteHit(note:Note, p4:Bool = false) {
 	}
 
 	if (ClientPrefs.settings.get("scoreDisplay") == 'DenpaEx') {
+		if (!note.isSustainNote)
+			npsArray.unshift(Date.now());
+	}
+
+	if (ClientPrefs.settings.get("scoreDisplay") == 'Kamie') {
 		if (!note.isSustainNote)
 			npsArray.unshift(Date.now());
 	}
