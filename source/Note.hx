@@ -724,7 +724,8 @@ class Note extends FlxSprite {
 			case 'Quant':
 				checkNoteQuant(this, isSustainNote ? chartNoteData.parent.strumTime : chartNoteData.strumTime);
 			case 'Rainbow':
-				colorSwap.hue = ((strumTime / 5000 * 360) / 360) % 1;
+        final time = (ClientPrefs.settings.get("rainbowTime") != 0 ? ClientPrefs.settings.get("rainbowTime") * 1000 : Conductor.crochet);
+				colorSwap.hue = ((strumTime / time * 360) / 360) % 1;
 			case 'Default':
 				colorSwap.hue = ClientPrefs.arrowHSV[
 					Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])

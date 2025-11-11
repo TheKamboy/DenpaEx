@@ -974,6 +974,11 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 	public function new() {
 		title = 'Customization Settings';
 		rpcTitle = 'Customization Settings Menu';
+    
+    // toggles
+
+    var option:Option = new Option('Toggles', "Hide and unhide elements.", 'secretLink', 'link', false);
+		addOption(option);
 
 		var option:Option = new Option('Hide HUD', 'If checked, hides most HUD elements.', 'hideHud', 'bool', false);
 		addOption(option);
@@ -996,7 +1001,12 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Health Bar', "If unchecked, health bar will not appear.", 'healthBarVisibility', 'bool', false);
 		addOption(option);
 
-		var option:Option = new Option('Score Display:', "What engine's score display do you want?", 'scoreDisplay', 'string', 'DenpaEx',
+    // format customizations
+
+    var option:Option = new Option('Formatting', "Formatting for Score and Time.", 'secretLink', 'link', false);
+		addOption(option);
+
+		var option:Option = new Option('Score Display:', "What score display style do you want?", 'scoreDisplay', 'string', 'DenpaEx',
 			['DenpaEx', 'Vanilla', 'Psych', 'Kade', 'Sarvente', 'FPS+', 'FNF+', 'FNM', 'Kamie', 'None']);
 		addOption(option);
 
@@ -1012,20 +1022,37 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 		]);
 		addOption(option);
 
+    // score customizations
+
+    var option:Option = new Option('Score Customizations', "Things you can customization with Score Display.", 'secretLink', 'link', false);
+		addOption(option);
+
+		var option:Option = new Option('Notes Per Second', "If unchecked, NPS will not be calculated.", 'allowNPS', 'bool', true);
+		addOption(option);
+
+    var option:Option = new Option('Rendered Notes', "If unchecked, Notes currently rendered will not be calculated. (NOTE: Only works with the \"Kamie\" Score Display setting.)", 'allowRenderedNotes', 'bool', true);
+		addOption(option);
+
+    // note customizations
+
+    var option:Option = new Option('Note Customizations', "Things you can customization with the notes.", 'secretLink', 'link', false);
+		addOption(option);
+
 		var option:Option = new Option('Strums', "If unchecked, strums will not light up.", 'strumVisibility', 'bool', true);
 		addOption(option);
 
 		var option:Option = new Option('Note Splashes', "If unchecked, hitting \"Sick!\" notes won't show particles.", 'noteSplashes', 'bool', true);
 		addOption(option);
 
-    var option:Option = new Option('Extra Customizations', "Other things you can customize.", 'secretLink', 'link', false);
+		var option:Option = new Option('Rainbow Note Speed', "How fast do you want your notes to change colors?", 'rainbowTime', 'float', 5.0);
 		addOption(option);
 
-		var option:Option = new Option('NPS', "If unchecked, Notes hit per second will not be calculated.", 'allowNPS', 'bool', true);
-		addOption(option);
-
-    var option:Option = new Option('Rendered Notes', "If unchecked, Notes currently rendered will not be calculated. (NOTE: Only works with the \"Kamie\" Score Display setting.)", 'allowRenderedNotes', 'bool', true);
-		addOption(option);
+		option.minValue = 0;
+		option.maxValue = 100;
+		option.scrollSpeed = 4;
+		option.changeValue = 0.01;
+		option.decimals = 2;
+    option.displayFormat = '%vs';
 
 		super();
 

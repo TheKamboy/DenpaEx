@@ -66,6 +66,7 @@ class ClientPrefs {
 		"targetFPS" => 60,
 		// Floats
 		"hitsoundVolume" => 0,
+		"rainbowTime" => 5,
 		"safeFrames" => 10,
 		"colorblindIntensity" => 1,
 		"renderBitrate" => 5.00,
