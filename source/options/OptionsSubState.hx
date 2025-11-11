@@ -1018,7 +1018,13 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Note Splashes', "If unchecked, hitting \"Sick!\" notes won't show particles.", 'noteSplashes', 'bool', true);
 		addOption(option);
 
+    var option:Option = new Option('Extra Customizations', "Other things you can customize.", 'secretLink', 'link', false);
+		addOption(option);
+
 		var option:Option = new Option('NPS', "If unchecked, Notes hit per second will not be calculated.", 'allowNPS', 'bool', true);
+		addOption(option);
+
+    var option:Option = new Option('Rendered Notes', "If unchecked, Notes currently rendered will not be calculated. (NOTE: Only works with the \"Kamie\" Score Display setting.)", 'allowRenderedNotes', 'bool', true);
 		addOption(option);
 
 		super();

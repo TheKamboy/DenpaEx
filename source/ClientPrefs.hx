@@ -53,6 +53,7 @@ class ClientPrefs {
 		"shadersEnabled" => true,
 		"modifierVisibility" => true,
 		"allowNPS" => true,
+    "allowRenderedNotes" => true,
 		// Ints
 		"framerate" => 60,
 		"noteOffset" => 0,

@@ -3746,14 +3746,16 @@ override public function update(elapsed:Float) {
 		hud.botplayTxt.visible = false;
 
         var skibiidi = 0;
-        notes.forEachAlive(function(note) { skibiidi += 1; });
-        sustains.forEachAlive(function(note) { skibiidi += 1; });
+        // notes.forEachAlive(function(note) { skibiidi += 1; });
+        // sustains.forEachAlive(function(note) { skibiidi += 1; });
 
         var npsText = '';
+        var renText = '';
 
-        if (ClientPrefs.settings.get("allowNPS")) npsText = '| $opNps/$opMaxNps - $notesPerSecond/$maxNps';
+        if (ClientPrefs.settings.get("allowNPS")) npsText = ' | $opNps/$opMaxNps - $notesPerSecond/$maxNps';
+        if (ClientPrefs.settings.get("allowRenderedNotes")) renText = ' | R: ${notes.countAlive() + sustains.countAlive()}';
 
-		final coolHudText = '$opNotes + $combo = ${opNotes+combo}$npsText | R: ${skibiidi}';
+		final coolHudText = '$opNotes + $combo = ${opNotes+combo}$npsText$renText';
 		hud.scoreTxt.text = coolHudText;
 
 		hud.scoreTxtBg.makeGraphic(Math.round((coolHudText.length * 8) / 0.95), Math.round(hud.scoreTxt.height), FlxColor.BLACK);

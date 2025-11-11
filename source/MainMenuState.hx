@@ -162,12 +162,17 @@ class MainMenuState extends MusicBeatState {
 
 		#if !html5
 		final R:String = controls.mobileC ? 'C' : 'R';
-		var prompt:FlxText = new FlxText(6, FlxG.height - 64, 0, '$R - Clear Save Data', 12);
+		var prompt:FlxText = new FlxText(6, FlxG.height - 84, 0, '$R - Clear Save Data', 12);
 		prompt.scrollFactor.set();
 		prompt.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		prompt.alpha = 0.5;
 		prompt.active = false;
 		add(prompt);
+    var versionShit:FlxText = new FlxText(6, FlxG.height - 64, 0, 'DenpaEx Custom v${Main.denpaExCVersion.version}', 12);
+		versionShit.scrollFactor.set();
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.active = false;
+		add(versionShit);
 		var versionShit2:FlxText = new FlxText(6, FlxG.height - 44, 0, 'DenpaEx v${Main.denpaEngineVersion.version}', 12);
 		versionShit2.scrollFactor.set();
 		versionShit2.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);

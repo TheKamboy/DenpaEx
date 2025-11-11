@@ -100,6 +100,16 @@ class NoteGroup extends FlxTypedGroup<Note> {
 		}, recursive);
 	}
 
+	public function countAlive():Int {
+    var i = 0;
+		forEach(function(note) {
+			if (note.alive)
+        i += 1;
+		}, false);
+
+    return i;
+	}
+
 	public override function remove(Object:Note, Splice:Bool = false):Note {
 		if (members == null)
 			return null;
