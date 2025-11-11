@@ -3749,7 +3749,11 @@ override public function update(elapsed:Float) {
         notes.forEachAlive(function(note) { skibiidi += 1; });
         sustains.forEachAlive(function(note) { skibiidi += 1; });
 
-		final coolHudText = '$opNotes + $combo = ${opNotes+combo} | $opNps/$opMaxNps - $notesPerSecond/$maxNps | R: ${skibiidi}';
+        var npsText = '';
+
+        if (ClientPrefs.settings.get("allowNPS")) npsText = '| $opNps/$opMaxNps - $notesPerSecond/$maxNps';
+
+		final coolHudText = '$opNotes + $combo = ${opNotes+combo}$npsText | R: ${skibiidi}';
 		hud.scoreTxt.text = coolHudText;
 
 		hud.scoreTxtBg.makeGraphic(Math.round((coolHudText.length * 8) / 0.95), Math.round(hud.scoreTxt.height), FlxColor.BLACK);
