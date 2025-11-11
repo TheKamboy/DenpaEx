@@ -11,6 +11,7 @@ You can view the original README [here](README.md), and the original repository 
 
 -   Working(-ish) Action Builds (Linux is still broken, but we have Windows and Mac OS Builds)
 -   My Custom HUD
+-   Some extra options
 -   That's it for now lol
 
 
@@ -24,7 +25,7 @@ You can view the original README [here](README.md), and the original repository 
 
 ### DenpaEX [FORKED] Team
 
--   **Kamie (aka TheKamboy):** just me lol
+-   **Kamie (aka TheKamboy):** Yeah
 
 
 ### DenpaEX Team

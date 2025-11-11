@@ -12,6 +12,7 @@ You can view the original README [[file:README.md][here]], and the original repo
 
 - Working(-ish) Action Builds (Linux is still broken, but we have Windows and Mac OS Builds)
 - My Custom HUD
+- Some extra options
 - That's it for now lol
 
 ** Soon to be Added Features
@@ -21,7 +22,7 @@ You can view the original README [[file:README.md][here]], and the original repo
 ** Credits
 
 *** DenpaEX [FORKED] Team
-- Kamie (aka TheKamboy) :: just me lol
+- Kamie (aka TheKamboy) :: Yeah
 
 *** DenpaEX Team
 - justAMZ :: Creator of DenpaEX
