@@ -3727,6 +3727,7 @@ override public function update(elapsed:Float) {
 		} else {
 			hud.scoreTxt.text = 'NPS/MAX: $notesPerSecond/$maxNps | SCORE: ${FlxStringUtil.formatMoney(songScore, false)} | BREAKS: ${FlxStringUtil.formatMoney(songMisses, false)} | ACCURACY: ${Highscore.floorDecimal(ratingPercent * 100, 2)}% | $ratingName';
 		}
+        if (ClientPrefs.settings.get("allowNPS")) {
 		var balls = npsArray.length - 1;
 		while (balls >= 0) {
 			var cock:Date = npsArray[balls];
@@ -3739,7 +3740,7 @@ override public function update(elapsed:Float) {
 		notesPerSecond = npsArray.length;
 		if (notesPerSecond > maxNps)
 			maxNps = notesPerSecond;
-	}
+	}}
 
 	if (ClientPrefs.settings.get("scoreDisplay") == 'Kamie') {
 		hud.botplayTxt.visible = false;
@@ -3759,6 +3760,7 @@ override public function update(elapsed:Float) {
 		// hud.scoreTxtBg.width = (coolHudText.length * 8) / 0.95;
 		// hud.scoreTxtBg.height = hud.scoreTxt.height;
 
+        if (ClientPrefs.settings.get("allowNPS")) {
 		var balls = npsArray.length - 1;
 		while (balls >= 0) {
 			var cock:Date = npsArray[balls];
@@ -3784,6 +3786,7 @@ override public function update(elapsed:Float) {
 	    opNps = opNpsArray.length;
 		if (opNps > opMaxNps)
 			opMaxNps = opNps;
+        }       
 	}
 
 	if (ClientPrefs.settings.get("scoreDisplay") == 'DenpaEx') {
@@ -3792,6 +3795,7 @@ override public function update(elapsed:Float) {
 		} else {
 			hud.scoreTxt.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false)} (${FlxStringUtil.formatMoney(maxScore, false)}) / Health: ${FlxMath.roundDecimal(intendedHealth * 50, 0)}% / NPS (Max): $notesPerSecond ($maxNps) / Accuracy: ${Highscore.floorDecimal(ratingPercent * 100, 2)}%';
 		}
+        if (ClientPrefs.settings.get("allowNPS")) {
 		var balls = npsArray.length - 1;
 		while (balls >= 0) {
 			var cock:Date = npsArray[balls];
@@ -3804,7 +3808,8 @@ override public function update(elapsed:Float) {
 		notesPerSecond = npsArray.length;
 		if (notesPerSecond > maxNps)
 			maxNps = notesPerSecond;
-	}
+            
+	}}
 
 	// RESET = Quick Game Over Screen
 	if (!ClientPrefs.settings.get("noReset") && controls.RESET && !inCutscene && !endingSong)

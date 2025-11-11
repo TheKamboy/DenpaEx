@@ -1018,6 +1018,9 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Note Splashes', "If unchecked, hitting \"Sick!\" notes won't show particles.", 'noteSplashes', 'bool', true);
 		addOption(option);
 
+		var option:Option = new Option('NPS', "If unchecked, Notes hit per second will not be calculated.", 'allowNPS', 'bool', true);
+		addOption(option);
+
 		super();
 
 		addScrollers();

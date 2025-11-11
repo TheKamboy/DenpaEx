@@ -52,6 +52,7 @@ class ClientPrefs {
 		"coolFreeplay" => true,
 		"shadersEnabled" => true,
 		"modifierVisibility" => true,
+		"allowNPS" => true,
 		// Ints
 		"framerate" => 60,
 		"noteOffset" => 0,
