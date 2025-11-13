@@ -1030,7 +1030,10 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 		var option:Option = new Option('Notes Per Second', "If unchecked, NPS will not be calculated.", 'allowNPS', 'bool', true);
 		addOption(option);
 
-    var option:Option = new Option('Rendered Notes', "If unchecked, Notes currently rendered will not be calculated. (NOTE: Only works with the \"Kamie\" Score Display setting.)", 'allowRenderedNotes', 'bool', true);
+    var option:Option = new Option('Rendered Notes', "If unchecked, Notes rendered per frame will not be calculated. (NOTE: Only works with the \"Kamie\" Score Display setting.)", 'allowRenderedNotes', 'bool', true);
+		addOption(option);
+
+    var option:Option = new Option('Max Rendered Notes', "If unchecked, the highest amount of notes rendered per frame will not be calculated. (NOTE: Only works with the \"Kamie\" Score Display setting.)", 'allowMaxRenderedNotes', 'bool', true);
 		addOption(option);
 
     // note customizations

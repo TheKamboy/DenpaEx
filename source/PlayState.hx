@@ -198,6 +198,10 @@ class PlayState extends MusicBeatState {
 	// the hud
 	public var hud:HUD;
 
+  // max rendered notes
+
+  public var maxNotesRendered:Int = 0;
+
 	// shit for keeping track of actual strum positioning
 	private var strumLine:FlxPoint;
 
@@ -3745,15 +3749,18 @@ override public function update(elapsed:Float) {
 	if (ClientPrefs.settings.get("scoreDisplay") == 'Kamie') {
 		hud.botplayTxt.visible = false;
 
-        var skibiidi = 0;
+        var skibiidi = notes.countAlive() + sustains.countAlive();
         // notes.forEachAlive(function(note) { skibiidi += 1; });
         // sustains.forEachAlive(function(note) { skibiidi += 1; });
+
+        if (skibiidi > maxNotesRendered && ClientPrefs.settings.get("allowMaxRenderedNotes")) maxNotesRendered = skibiidi;
 
         var npsText = '';
         var renText = '';
 
         if (ClientPrefs.settings.get("allowNPS")) npsText = ' | $opNps/$opMaxNps - $notesPerSecond/$maxNps';
-        if (ClientPrefs.settings.get("allowRenderedNotes")) renText = ' | R: ${notes.countAlive() + sustains.countAlive()}';
+        if (ClientPrefs.settings.get("allowRenderedNotes")) renText = ' | R: $skibiidi';
+        if (ClientPrefs.settings.get("allowRenderedNotes") && ClientPrefs.settings.get("allowMaxRenderedNotes")) renText = ' | R/M: $skibiidi/$maxNotesRendered';
 
 		final coolHudText = '$opNotes + $combo = ${opNotes+combo}$npsText$renText';
 		hud.scoreTxt.text = coolHudText;
