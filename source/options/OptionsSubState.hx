@@ -1024,7 +1024,7 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 
     // score customizations
 
-    var option:Option = new Option('Score Customizations', "Things you can customization with Score Display.", 'secretLink', 'link', false);
+    var option:Option = new Option('Score Customizations', "Things you can customize with the Score Display.", 'secretLink', 'link', false);
 		addOption(option);
 
 		var option:Option = new Option('Notes Per Second', "If unchecked, NPS will not be calculated.", 'allowNPS', 'bool', true);
@@ -1035,7 +1035,7 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 
     // note customizations
 
-    var option:Option = new Option('Note Customizations', "Things you can customization with the notes.", 'secretLink', 'link', false);
+    var option:Option = new Option('Note Customizations', "Things you can customize with the notes.", 'secretLink', 'link', false);
 		addOption(option);
 
 		var option:Option = new Option('Strums', "If unchecked, strums will not light up.", 'strumVisibility', 'bool', true);
@@ -1053,6 +1053,14 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 		option.changeValue = 0.01;
 		option.decimals = 2;
     option.displayFormat = '%vs';
+
+    // character customizations
+
+    var option:Option = new Option('Character Customizations', "Things you can customize with the player and opponent.", 'secretLink', 'link', false);
+		addOption(option);
+
+    var option:Option = new Option('Sustain Animations', "If unchecked, the singing animation won't replay while hitting sustains.", 'sustainAnimations', 'bool', false);
+		addOption(option);
 
 		super();
 

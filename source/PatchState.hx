@@ -90,6 +90,26 @@ class PatchState extends MusicBeatState {
 
 		var denpaPatches = [
 			// Ver - Icon name - Update Ver - Update Name - Description - Link - BG Color
+			['DenpaEx Custom'],
+			[
+				// make sure to replace all "GIT" with 0.0.2
+				'GIT',
+				'fork',
+				"GIT",
+				"",
+				"Additions:\nChanges are now shown in the Patches Menu (like what you are seening now).\nNPS and Rendered Notes can now be disabled (useful for NPS since it's laggy).\nRainbow Notes can now have it's speed changed.\nHold Animations can be toggled on, or off.",
+				'https://github.com/thekamboy/denpaex',
+				'676767'
+			],
+			[
+				'0.0.1',
+				'fork',
+				"0.0.1",
+				"",
+				"I don't remember other than the custom hud, opponent nps, rendered notes, stuff like that idk",
+				'https://github.com/thekamboy/denpaex',
+				'676767'
+			],
 			['DenpaEx'],
 			[
 				'0.8.2b',

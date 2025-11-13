@@ -54,6 +54,7 @@ class ClientPrefs {
 		"modifierVisibility" => true,
 		"allowNPS" => true,
     "allowRenderedNotes" => true,
+    "sustainAnimations" => false,
 		// Ints
 		"framerate" => 60,
 		"noteOffset" => 0,

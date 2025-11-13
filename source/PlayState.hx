@@ -5993,7 +5993,7 @@ public function opponentNoteHit(note:Note, p4:Bool = false) {
 
 	if (!note.isSustainNote) opNotes += 1;
 
-	if (ClientPrefs.settings.get("scoreDisplay") == 'Kamie') {
+	if (ClientPrefs.settings.get("scoreDisplay") == 'Kamie' && ClientPrefs.settings.get("allowNPS")) {
 		if (!note.isSustainNote)
 			opNpsArray.unshift(Date.now());
 	}
@@ -6026,7 +6026,7 @@ public function opponentNoteHit(note:Note, p4:Bool = false) {
 		final animToPlay:String = 'sing' + Note.keysShit.get(mania).get('anims')[note.noteData];
 
 		if (oppChar != null) {
-			if (!note.isSustainNote) {
+			if (!note.isSustainNote || (note.isSustainNote && ClientPrefs.settings.get("sustainAnimations"))) {
 				if (oppChar.animOffsets.hasKey(animToPlay + altAnim))
 					oppChar.playAnim(animToPlay + altAnim, true);
 				else if (oppChar.animOffsets.hasKey(animToPlay))
@@ -6143,6 +6143,7 @@ public function goodNoteHit(note:Note, p4:Bool = false) {
 	if ((note.isSustainNote && note.wasGoodHit) || (cpuControlled && (note.ignoreNote || note.hitCausesMiss)))
 		return;
 
+  if (ClientPrefs.settings.get("allowNPS")) {
 	if (ClientPrefs.settings.get("scoreDisplay") == 'Kade') {
 		if (!note.isSustainNote)
 			npsArray.unshift(Date.now());
@@ -6157,6 +6158,7 @@ public function goodNoteHit(note:Note, p4:Bool = false) {
 		if (!note.isSustainNote)
 			npsArray.unshift(Date.now());
 	}
+  }
 
 	if (ClientPrefs.settings.get("hitsoundVolume") > 0 && !note.isSustainNote)
 		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.settings.get("hitsoundVolume"));
@@ -6266,7 +6268,7 @@ public function goodNoteHit(note:Note, p4:Bool = false) {
 			char.missing = false;
 			char.color = 0xffffffff;
 		}
-		if (!note.isSustainNote) {
+		if (!note.isSustainNote || (note.isSustainNote && ClientPrefs.settings.get("sustainAnimations"))) {
 			if (char.animOffsets.hasKey(animToPlay + daAlt))
 				char.playAnim(animToPlay + daAlt, true);
 			else if (char.animOffsets.hasKey(animToPlay))
