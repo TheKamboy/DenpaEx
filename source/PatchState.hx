@@ -97,7 +97,7 @@ class PatchState extends MusicBeatState {
 				'fork',
 				"GIT",
 				"",
-				"Additions:\nChanges are now shown in the Patches Menu (like what you are seening now).\nNPS and Rendered Notes can now be disabled (useful for NPS since it's laggy).\nMax Rendered Notes can now be shown.\nRainbow Notes can now have it's speed changed.\nHold Animations can be toggled on, or off.",
+				"Additions:\nChanges are now shown in the Patches Menu (like what you are seening now).\nNPS and Rendered Notes can now be disabled (useful for NPS since it's laggy).\nMax Rendered Notes can now be shown.\nRainbow Notes can now have it's speed changed.\nHold Animations can be toggled on, or off.\nFixes:\nMove re-rendering of Score BG to the end of the update loop, to support custom score text scripts.",
 				'https://github.com/thekamboy/denpaex',
 				'676767'
 			],
