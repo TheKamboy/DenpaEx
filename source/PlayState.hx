@@ -3765,10 +3765,10 @@ override public function update(elapsed:Float) {
 		final coolHudText = '$opNotes + $combo = ${opNotes+combo}$npsText$renText';
 		hud.scoreTxt.text = coolHudText;
 
-		hud.scoreTxtBg.makeGraphic(Math.round((coolHudText.length * 8) / 0.95), Math.round(hud.scoreTxt.height), FlxColor.BLACK);
+		// hud.scoreTxtBg.makeGraphic(Math.round((coolHudText.length * 8) / 0.95), Math.round(hud.scoreTxt.height), FlxColor.BLACK);
 
-		hud.scoreTxtBg.x = (FlxG.width / 2) - (hud.scoreTxtBg.width / 2);
-		hud.scoreTxtBg.y = hud.scoreTxt.y;
+		// hud.scoreTxtBg.x = (FlxG.width / 2) - (hud.scoreTxtBg.width / 2);
+		// hud.scoreTxtBg.y = hud.scoreTxt.y;
 
 		// hud.scoreTxtBg.width = (coolHudText.length * 8) / 0.95;
 		// hud.scoreTxtBg.height = hud.scoreTxt.height;
@@ -4001,6 +4001,13 @@ override public function update(elapsed:Float) {
 	for (i in shaderUpdates) {
 		i(elapsed);
 	}
+
+  if (ClientPrefs.settings.get("scoreDisplay") == "Kamie") {
+    hud.scoreTxtBg.makeGraphic(Math.round((coolHudText.length * 8) / 0.95), Math.round(hud.scoreTxt.height), FlxColor.BLACK);
+		hud.scoreTxtBg.x = (FlxG.width / 2) - (hud.scoreTxtBg.width / 2);
+		hud.scoreTxtBg.y = hud.scoreTxt.y;
+  }
+
 	if (!ffmpegMode)
 		return;
 
