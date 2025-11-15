@@ -161,14 +161,6 @@ class MainMenuState extends MusicBeatState {
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-    var denpaExCver:GameVersion;
-
-    if (Main.gitCommit != null || Main.gitCommit != '') {
-      denpaExCver = new GameVersion(Main.denpaExCVersion.release, Main.denpaExCVersion.major, Main.denpaExCVersion.minor, '${Main.denpaExCVersion.patch} (GIT COMMIT: ${Main.gitCommit})');
-    } else {
-        denpaExCver = new GameVersion(Main.denpaExCVersion.release, Main.denpaExCVersion.major, Main.denpaExCVersion.minor, Main.denpaExCVersion.patch);
-    }
-
 		#if !html5
 		final R:String = controls.mobileC ? 'C' : 'R';
 		var prompt:FlxText = new FlxText(6, FlxG.height - 84, 0, '$R - Clear Save Data', 12);
@@ -177,7 +169,7 @@ class MainMenuState extends MusicBeatState {
 		prompt.alpha = 0.5;
 		prompt.active = false;
 		add(prompt);
-    var versionShit:FlxText = new FlxText(6, FlxG.height - 64, 0, 'DenpaEx Custom v${denpaExCver.version}', 12);
+    var versionShit:FlxText = new FlxText(6, FlxG.height - 64, 0, 'DenpaEx Custom v${Main.denpaExCVersion.version} ${Main.gitCommit != null ? "(GIT COMMIT: " + Main.gitCommit + ")" : ""}', 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		versionShit.active = false;

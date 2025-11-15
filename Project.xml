@@ -103,6 +103,7 @@
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
+  <lime version="8.1.2" />
 	<haxelib name="flixel" />
 	<haxedev set='webgl' />
 	<haxelib name="flixel-addons" />
