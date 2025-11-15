@@ -757,11 +757,6 @@ class GraphicsSettingsSubState extends BaseOptionsMenu {
 		addOption(option);
 		option.onChange = changeOption;
 
-		var option:Option = new Option('Noteskin Color:', "What color should the noteskin have?", 'noteColor', 'string', 'Default',
-			['Default', 'Greyscale', 'Rainbow', 'Quant']);
-		addOption(option);
-		option.onChange = changeOption;
-
 		var option:Option = new Option('Icon Animation:', "What animation should the healthbar icons do?", 'iconAnim', 'string', 'Swing',
 			['Swing', 'Snap', 'Stretch', 'Bop', 'Old', 'None']);
 		addOption(option);
@@ -1046,6 +1041,11 @@ class CustomizationSettingsSubState extends BaseOptionsMenu {
 
 		var option:Option = new Option('Note Splashes', "If unchecked, hitting \"Sick!\" notes won't show particles.", 'noteSplashes', 'bool', true);
 		addOption(option);
+
+		var option:Option = new Option('Noteskin Color:', "What color should the noteskin have?", 'noteColor', 'string', 'Default',
+			['Default', 'Greyscale', 'Rainbow', 'Quant']);
+		addOption(option);
+		// option.onChange = changeOption;
 
 		var option:Option = new Option('Rainbow Note Speed', "How fast do you want your notes to change colors?", 'rainbowTime', 'float', 5.0);
 		addOption(option);
