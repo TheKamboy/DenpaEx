@@ -1,6 +1,7 @@
 package;
 
 import compiletime.GameVersion;
+import compiletime.HaxeCommit;
 import flixel.FlxGame;
 import flixel.FlxState;
 import lime.app.Application;
@@ -74,6 +75,7 @@ class Main extends Sprite {
 	 * 
 	 * Use `debugVersion` to get the version with build date.
 	 */
+  public static final gitCommit:String = HaxeCommit.getGitCommitHash();
 	public static final denpaEngineVersion:GameVersion = new GameVersion(0, 8, 2, 'b');
 	public static final denpaExCVersion:GameVersion = new GameVersion(0, 0, 1, '');
 
