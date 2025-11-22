@@ -56,6 +56,7 @@ class ClientPrefs {
     "allowRenderedNotes" => true,
     "allowMaxRenderedNotes" => true,
     "sustainAnimations" => false,
+    "vsync" => false,
 		// Ints
 		"framerate" => 60,
 		"noteOffset" => 0,

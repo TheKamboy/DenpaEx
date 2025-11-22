@@ -456,6 +456,9 @@ class GeneralSettingsSubState extends BaseOptionsMenu {
 		option.scrollSpeed = 120;
 		#end
 
+		var option:Option = new Option('V-Sync', 'If unchecked, framerate will not be tied to the monitors refresh rate. (Only enabled in PlayState)', 'vsync', 'bool', false);
+		addOption(option);
+
 		var option:Option = new Option('FPS Counter', 'If unchecked, hides FPS Counter.', 'showFPS', 'bool', true);
 		addOption(option);
 		option.onChange = changeOption;

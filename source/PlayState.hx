@@ -583,6 +583,10 @@ class PlayState extends MusicBeatState {
 			#end
 		}
 
+    if (!ffmpegMode) {
+        FlxG.stage.application.window.vsync = ClientPrefs.settings.get("vsync");
+    }
+
 		Paths.clearUnusedCache();
 
 		cpp.vm.Gc.enable(ClientPrefs.settings.get("ffmpegMode")); // prevent lag spikes where it matters most
@@ -6553,6 +6557,10 @@ override public function destroy() {
 	#if cpp
 	cpp.vm.Gc.enable(true);
 	#end
+  
+  if (!ffmpegMode) {
+    FlxG.stage.application.window.vsync = false;
+  }
 
 	preventLuaRemove = true;
 	for (i in 0...luaArray.length) {
